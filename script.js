@@ -5,6 +5,9 @@ const pinDisplay = document.getElementById('pin-display')
 const generatePin = document.getElementById('generate-pin')
 const wrongNotify = document.getElementById('wrong')
 const rightNotify = document.getElementById('right')
+const tryId = document.getElementById('try')
+const tryLeft = document.getElementById('try-left')
+let tries = parseInt(tryId.innerHTML)
 
 
 
@@ -37,11 +40,14 @@ submitBtn.addEventListener('click',(e)=>{
     if(calcDisplayValue == pinDisplay.value){
         rightNotify.style.display = 'block'
         wrongNotify.style.display = 'none'
+        tryLeft.style.display = 'none'
     }
     else{
         rightNotify.style.display = 'none'
         wrongNotify.style.display = 'block'
-        
+        tryLeft.style.display = 'block'
+        tries--
+        tryId.innerHTML = tries
     }
 })
 
